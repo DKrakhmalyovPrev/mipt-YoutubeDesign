@@ -8,7 +8,7 @@ private:
     std::mt19937 gen{std::random_device{}()};
 
 public:
-    static RandomSequenceGenerator& instance() {
+    static RandomSequenceGenerator &instance() {
         static RandomSequenceGenerator generator;
         return generator;
     }

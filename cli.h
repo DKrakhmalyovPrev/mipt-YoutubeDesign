@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <functional>
 
-#include "client.cpp"
+#include "client.h"
 
 class YoutubeCLI {
 private:
@@ -19,7 +19,7 @@ private:
     youtube::client::YoutubeClient client;
 
 public:
-    YoutubeCLI(std::istream &input, std::ostream &output, youtube::client::YoutubeClient&& client)
+    YoutubeCLI(std::istream &input, std::ostream &output, youtube::client::YoutubeClient &&client)
             : input(input), output(output), client(std::move(client)) {
         initProcessing();
     }
@@ -59,11 +59,39 @@ public:
             std::vector<std::string> searchLine = std::vector<std::string>(cmd.begin() + 1, cmd.end());
             std::vector<std::shared_ptr<youtube::Video>> result = client.searchVideos(searchLine);
             for (const auto video : result) {
-                output << video->id << ' ' << video->title << '\n';
+                output << '[' << video->id << "] " << video->title << '\n';
             }
             output.flush();
             return true;
-        }, "title - upload new video");
+        }, "title - search videos");
+
+        acceptWithHelp("download", 1, [this](CLICommand &cmd) {
+            std::string content = client.downloadVideo(cmd[1]);
+            output << content << std::endl;
+            return true;
+        }, "videoId - download video content");
+
+        acceptWithHelp("comment", 1, [this](CLICommand &cmd) {
+            output << "Type your comment here:" << std::endl;
+            std::string comment;
+            std::getline(input, comment);
+            client.leaveComment(cmd[1], comment);
+            return true;
+        }, "videoId - post a comment");
+
+        acceptWithHelp("read-comments", 1, [this](CLICommand &cmd) {
+            const std::shared_ptr<youtube::Video> video = client.getVideo(cmd[1]);
+            bool first = true;
+            for (const std::shared_ptr<youtube::Comment> comment : video->getComments()) {
+                if (!first) {
+                    output << "----------------\n";
+                }
+                first = false;
+                output << comment->userName << ":" << "\n" << comment->content << "\n";
+            }
+            output.flush();
+            return true;
+        }, "videoId - list all comments");
 
         acceptWithHelp("help", 0, [this](CLICommand &cmd) {
             output << helpString.str();
@@ -84,7 +112,7 @@ public:
     }
 
     void acceptWithHelp(std::string &&firstLexeme, int minArgs, int maxArgs,
-            CLIAcceptor &&executor, const std::string &help) {
+                        CLIAcceptor &&executor, const std::string &help) {
         helpString << firstLexeme << ' ' << help << '\n';
         accept(std::move(firstLexeme), minArgs, maxArgs, std::move(executor));
     }

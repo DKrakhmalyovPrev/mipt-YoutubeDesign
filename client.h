@@ -2,7 +2,7 @@
 
 #include <utility>
 
-#include "common-data.cpp"
+#include "common-data.h"
 
 namespace youtube {
     namespace client {
@@ -23,12 +23,24 @@ namespace youtube {
                 backend->registerUser(name, password);
             }
 
-            const std::vector<std::shared_ptr<Video>> searchVideos(const std::vector<std::string>& request) {
-                return std::vector<std::shared_ptr<Video>>{};
+            const std::vector<std::shared_ptr<Video>> searchVideos(const std::vector<std::string> &request) {
+                return backend->searchVideos(request);
             }
 
-            const void uploadVideo(const std::string& name, const std::string& content) {
+            const std::shared_ptr<Video> getVideo(const std::string &id) {
+                return backend->getVideo(id);
+            }
+
+            void uploadVideo(const std::string &name, const std::string &content) {
                 backend->addVideo(authToken, name, content);
+            }
+
+            const std::string downloadVideo(const std::string &id) {
+                return backend->downloadVideo(id);
+            }
+
+            void leaveComment(const std::string &videoId, const std::string &comment) {
+                backend->leaveComment(authToken, videoId, comment);
             }
         };
 
@@ -44,6 +56,7 @@ namespace youtube {
         public:
             explicit StandardYoutubeClientFactory(std::shared_ptr<Backend> backend)
                     : backend(std::move(backend)) {}
+
             YoutubeClient openConnection() override {
                 return YoutubeClient(backend);
             }

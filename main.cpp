@@ -2,11 +2,11 @@
 #include <sstream>
 #include <memory>
 
-#include "backend.cpp"
-#include "client.cpp"
-#include "cli.cpp"
+#include "backend.h"
+#include "client.h"
+#include "cli.h"
 
-std::vector<std::string> parseToLexemes(const std::string& s) {
+std::vector<std::string> parseToLexemes(const std::string &s) {
     std::vector<std::string> result;
 
     char quotes = 0;
