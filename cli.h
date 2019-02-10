@@ -79,19 +79,38 @@ public:
             return true;
         }, "videoId - post a comment");
 
-        acceptWithHelp("read-comments", 1, [this](CLICommand &cmd) {
+        acceptWithHelp("show-comments", 1, [this](CLICommand &cmd) {
             const std::shared_ptr<youtube::Video> video = client.getVideo(cmd[1]);
             bool first = true;
-            for (const std::shared_ptr<youtube::Comment> comment : video->getComments()) {
+            const std::vector<std::shared_ptr<youtube::Comment>> &comments = video->getComments();
+            for (size_t i = 0; i < comments.size(); ++i) {
+                const std::shared_ptr<youtube::Comment> comment = comments[i];
                 if (!first) {
                     output << "----------------\n";
                 }
                 first = false;
+                output << '[' << i + 1 << "] (" << comment->getLikes() << " likes) ";
                 output << comment->userName << ":" << "\n" << comment->content << "\n";
             }
             output.flush();
             return true;
         }, "videoId - list all comments");
+
+        acceptWithHelp("like", 1, [this](CLICommand& cmd) {
+            client.likeVideo(cmd[1]);
+            return true;
+        }, "videoId - like video");
+
+        acceptWithHelp("like", 2, [this](CLICommand& cmd) {
+            client.likeComment(cmd[1], std::stoull(cmd[2]) - 1);
+            return true;
+        }, "videoId commentIndex - like comment");
+
+        acceptWithHelp("show-likes", 1, [this](CLICommand& cmd) {
+            const std::shared_ptr<youtube::Video> video = client.getVideo(cmd[1]);
+            output << video->getLikes() << std::endl;
+            return true;
+        }, "videoId - show likes");
 
         acceptWithHelp("help", 0, [this](CLICommand &cmd) {
             output << helpString.str();

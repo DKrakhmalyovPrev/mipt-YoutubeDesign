@@ -42,6 +42,14 @@ namespace youtube {
             void leaveComment(const std::string &videoId, const std::string &comment) {
                 backend->leaveComment(authToken, videoId, comment);
             }
+
+            void likeVideo(const std::string &videoId) {
+                backend->leaveLike(authToken, videoId);
+            }
+
+            void likeComment(const std::string &videoId, size_t commentId) {
+                backend->leaveLike(authToken, videoId, commentId);
+            }
         };
 
         class YoutubeClientFactory {

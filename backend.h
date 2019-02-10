@@ -29,6 +29,12 @@ namespace youtube {
                     : runtime_error("Exception: no such video") {}
         };
 
+        class NoSuchCommentException : public std::runtime_error {
+        public:
+            NoSuchCommentException()
+                    : runtime_error("Exception: no such comment") {}
+        };
+
         class NotAuthorizedException : public std::runtime_error {
         public:
             NotAuthorizedException()
@@ -63,7 +69,7 @@ namespace youtube {
             }
         };
 
-        class Likeable {
+        class BackendLikeable : public Likeable {
         private:
             std::unordered_set<std::string> whoLiked;
 
@@ -72,20 +78,31 @@ namespace youtube {
                 whoLiked.insert(userName);
             }
 
-            const size_t getLikes() const {
+            const size_t getLikes() const override {
                 return whoLiked.size();
             }
         };
 
-        class BackendComment : public Comment, public Likeable {
+        class BackendComment : public Comment, public BackendLikeable {
+        public:
+            BackendComment(std::string userName, std::string content)
+                    : Comment(std::move(userName), std::move(content)) {}
+
+            const size_t getLikes() const override {
+                return BackendLikeable::getLikes();
+            }
         };
 
-        class BackendVideo : public Video, public Likeable {
+        class BackendVideo : public Video, public BackendLikeable {
         public:
             BackendVideo(const std::string &id, const std::string &title) : Video(id, title) {}
 
             void addComment(const std::shared_ptr<Comment> &comment) {
                 comments.push_back(comment);
+            }
+
+            const size_t getLikes() const override {
+                return BackendLikeable::getLikes();
             }
         };
 
@@ -252,7 +269,26 @@ namespace youtube {
                 const std::shared_ptr<BackendVideo> video = storage.findVideo(videoId);
                 if (!video)
                     throw NoSuchVideoException();
-                video->addComment(std::make_shared<Comment>(user->name, comment));
+                video->addComment(std::make_shared<BackendComment>(user->name, comment));
+            }
+
+            void leaveLike(const std::string &authToken, const std::string &videoId) override {
+                std::shared_ptr<User> user = checkCredentials(authToken);
+                const std::shared_ptr<BackendVideo> video = storage.findVideo(videoId);
+                if (!video)
+                    throw NoSuchVideoException();
+                video->like(user->name);
+            }
+
+            void leaveLike(const std::string &authToken, const std::string &videoId, const size_t commentId) override {
+                std::shared_ptr<User> user = checkCredentials(authToken);
+                const std::shared_ptr<BackendVideo> video = storage.findVideo(videoId);
+                if (!video)
+                    throw NoSuchVideoException();
+                const std::vector<std::shared_ptr<Comment>> &comments = video->getComments();
+                if (comments.size() <= commentId)
+                    throw NoSuchCommentException();
+                std::dynamic_pointer_cast<BackendComment>(comments[commentId])->like(user->name);
             }
         };
 
