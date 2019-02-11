@@ -34,6 +34,7 @@ public:
         }
     }
 
+private:
     void initProcessing() {
         acceptWithHelp("register", 2, [this](CLICommand &cmd) {
             client.registerUser(cmd[1], cmd[2]);
@@ -79,19 +80,18 @@ public:
             return true;
         }, "videoId - post a comment");
 
+        acceptWithHelp("comment", 2, [this](CLICommand &cmd) {
+            output << "Type your comment here:" << std::endl;
+            std::string comment;
+            std::getline(input, comment);
+            client.leaveComment(cmd[1], comment, std::stoull(cmd[2]) - 1);
+            return true;
+        }, "videoId commentNumber - reply to a comment");
+
         acceptWithHelp("show-comments", 1, [this](CLICommand &cmd) {
             const std::shared_ptr<youtube::Video> video = client.getVideo(cmd[1]);
-            bool first = true;
             const std::vector<std::shared_ptr<youtube::Comment>> &comments = video->getComments();
-            for (size_t i = 0; i < comments.size(); ++i) {
-                const std::shared_ptr<youtube::Comment> comment = comments[i];
-                if (!first) {
-                    output << "----------------\n";
-                }
-                first = false;
-                output << '[' << i + 1 << "] (" << comment->getLikes() << " likes) ";
-                output << comment->userName << ":" << "\n" << comment->content << "\n";
-            }
+            printComments(comments);
             output.flush();
             return true;
         }, "videoId - list all comments");
@@ -156,5 +156,19 @@ public:
                     return executor(cmd);
                 }
         );
+    }
+
+    void printComments(const std::vector<std::shared_ptr<youtube::Comment>>& comments, const std::string& shift="") {
+        bool first = true;
+        for (size_t i = 0; i < comments.size(); ++i) {
+            const std::shared_ptr<youtube::Comment> comment = comments[i];
+            if (!first) {
+                output << shift << "----------------\n";
+            }
+            first = false;
+            output << shift << '[' << i + 1 << "] (" << comment->getLikes() << " likes) ";
+            output << comment->userName << ":" << "\n" << shift << comment->content << "\n";
+            printComments(comment->getReplies(), shift + "  ");
+        }
     }
 };

@@ -43,6 +43,10 @@ namespace youtube {
                 backend->leaveComment(authToken, videoId, comment);
             }
 
+            void leaveComment(const std::string &videoId, const std::string &comment, const size_t replyToIndex) {
+                backend->leaveComment(authToken, videoId, comment, replyToIndex);
+            }
+
             void likeVideo(const std::string &videoId) {
                 backend->leaveLike(authToken, videoId);
             }

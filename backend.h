@@ -91,6 +91,10 @@ namespace youtube {
             const size_t getLikes() const override {
                 return BackendLikeable::getLikes();
             }
+
+            void addReply(const std::shared_ptr<Comment> reply) {
+                replies.push_back(reply);
+            }
         };
 
         class BackendVideo : public Video, public BackendLikeable {
@@ -270,6 +274,19 @@ namespace youtube {
                 if (!video)
                     throw NoSuchVideoException();
                 video->addComment(std::make_shared<BackendComment>(user->name, comment));
+            }
+
+            void leaveComment(const std::string &authToken, const std::string &videoId,
+                              const std::string &comment, const size_t replyToIndex) override {
+                std::shared_ptr<User> user = checkCredentials(authToken);
+                const std::shared_ptr<BackendVideo> video = storage.findVideo(videoId);
+                if (!video)
+                    throw NoSuchVideoException();
+                const std::vector<std::shared_ptr<Comment>> &comments = video->getComments();
+                if (comments.size() <= replyToIndex)
+                    throw NoSuchCommentException();
+                const std::shared_ptr<BackendComment> reply = std::make_shared<BackendComment>(user->name, comment);
+                std::dynamic_pointer_cast<BackendComment>(comments[replyToIndex])->addReply(reply);
             }
 
             void leaveLike(const std::string &authToken, const std::string &videoId) override {

@@ -23,13 +23,18 @@ namespace youtube {
 
 
     class Comment : virtual public Likeable {
-    private:
+    protected:
+        std::vector<std::shared_ptr<Comment>> replies;
     public:
         const std::string userName;
         const std::string content;
 
         Comment(std::string userName, std::string content)
                 : userName(std::move(userName)), content(std::move(content)) {}
+
+        virtual const std::vector<std::shared_ptr<Comment>> &getReplies() const {
+            return replies;
+        }
     };
 
     class Video : virtual public Likeable {
@@ -70,6 +75,9 @@ namespace youtube {
 
         virtual void leaveComment(const std::string &authToken,
                                   const std::string &videoId, const std::string &comment) = 0;
+
+        virtual void leaveComment(const std::string &authToken,
+                                  const std::string &videoId, const std::string &comment, size_t replyToIndex) = 0;
 
         virtual void leaveLike(const std::string &authToken, const std::string &videoId) = 0;
 
