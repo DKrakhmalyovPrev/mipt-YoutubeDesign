@@ -48,10 +48,12 @@ namespace youtube {
         };
 
 
-        class User {
+        class User : public std::enable_shared_from_this<User> {
         private:
             const std::string password;
-            std::vector<std::shared_ptr<User>> subscriptions;
+            std::unordered_set<std::shared_ptr<User>> followers;
+            std::unordered_set<std::shared_ptr<User>> subscriptions;
+            std::vector<std::shared_ptr<Notification>> pendingNotifications;
             std::vector<std::shared_ptr<Video>> videos;
 
         public:
@@ -66,6 +68,27 @@ namespace youtube {
 
             void addVideo(const std::shared_ptr<Video> video) {
                 videos.push_back(video);
+            }
+
+            void addSubscription(const std::shared_ptr<User> subscription) {
+                subscriptions.insert(subscription);
+                subscription->followers.insert(shared_from_this());
+            }
+
+            void deferNotification(const std::shared_ptr<Notification> notification) {
+                pendingNotifications.push_back(notification);
+            }
+
+            void releasePendingNotifications() {
+                pendingNotifications.clear();
+            }
+
+            const std::vector<std::shared_ptr<Notification>> &getPendingNotifications() {
+                return pendingNotifications;
+            }
+
+            const std::unordered_set<std::shared_ptr<User>> &getFollowers() const {
+                return followers;
             }
         };
 
@@ -162,7 +185,13 @@ namespace youtube {
             std::map<std::string, std::string> videoContent;
             std::map<std::string, std::shared_ptr<User>> users;
 
+            DataStorage() = default;
+
         public:
+            DataStorage(const DataStorage &) = delete;
+
+            DataStorage(DataStorage &&) = delete;
+
             static DataStorage &instance() {
                 static DataStorage storage;
                 return storage;
@@ -207,9 +236,52 @@ namespace youtube {
             }
         };
 
+        class NotificationManager {
+        private:
+            std::map<std::string, std::vector<std::weak_ptr<ClientCallback>>> callbacks;
+
+            NotificationManager() = default;
+
+            const std::unordered_set<std::shared_ptr<ClientCallback>> getUserCallbacks(const std::string &userName) {
+                std::unordered_set<std::shared_ptr<ClientCallback>> result;
+                if (callbacks.count(userName) != 0) {
+                    std::vector<std::weak_ptr<ClientCallback>> &weakCallbacks = callbacks[userName];
+                    for (auto it = weakCallbacks.begin(); it < weakCallbacks.end(); ++it) {
+                        std::shared_ptr<ClientCallback> callback = it->lock();
+                        if (callback) {
+                            result.insert(callback);
+                        } else {
+                            weakCallbacks.erase(it);
+                        }
+                    }
+                }
+                return result;
+            }
+
+        public:
+            NotificationManager(const NotificationManager &) = delete;
+
+            NotificationManager(NotificationManager &&) = delete;
+
+            static NotificationManager &instance() {
+                static NotificationManager manager;
+                return manager;
+            }
+
+            void addUserCallback(const std::string &userName, const std::shared_ptr<ClientCallback> callback) {
+                callbacks[userName].push_back(std::weak_ptr<ClientCallback>(callback));
+            }
+
+            void notify(const std::string &userName, const std::shared_ptr<Notification> notification) {
+                for (const std::shared_ptr<ClientCallback> callback : getUserCallbacks(userName))
+                    (*callback)(notification);
+            }
+        };
+
         class BackendImpl : public Backend {
         private:
             DataStorage &storage = DataStorage::instance();
+            NotificationManager &notificationManager = NotificationManager::instance();
             std::map<std::string, std::shared_ptr<User>> authTokens;
 
 
@@ -220,8 +292,27 @@ namespace youtube {
                 return authTokens[authToken];
             }
 
-        public:
+            void
+            pushPendingNotifications(const std::shared_ptr<User> user, const std::shared_ptr<ClientCallback> callback) {
+                for (const std::shared_ptr<Notification> &notification: user->getPendingNotifications()) {
+                    (*callback)(notification);
+                }
+            }
 
+            void
+            pushNotificationTo(const std::shared_ptr<User> user, const std::shared_ptr<Notification> notification) {
+                notificationManager.notify(user->name, notification);
+                user->deferNotification(notification);
+            }
+
+            void
+            pushNotificationFrom(const std::shared_ptr<User> user, const std::shared_ptr<Notification> notification) {
+                for (const std::shared_ptr<User> to : user->getFollowers()) {
+                    pushNotificationTo(to, notification);
+                }
+            }
+
+        public:
             const std::string auth(const std::string &name, const std::string &password) override {
                 const std::shared_ptr<User> user = storage.findUser(name);
                 if (!user) {
@@ -246,6 +337,7 @@ namespace youtube {
                           const std::string &name, const std::string &content) override {
                 std::shared_ptr<User> user = checkCredentials(authToken);
                 std::shared_ptr<Video> video = storage.createVideo(user, name, content);
+                pushNotificationFrom(user, std::make_shared<Notification>(video));
             }
 
             const std::vector<std::shared_ptr<Video>> searchVideos(const std::vector<std::string> &request) override {
@@ -306,6 +398,26 @@ namespace youtube {
                 if (comments.size() <= commentId)
                     throw NoSuchCommentException();
                 std::dynamic_pointer_cast<BackendComment>(comments[commentId])->like(user->name);
+            }
+
+            void
+            setClientCallback(const std::string &authToken, const std::shared_ptr<ClientCallback> callback) override {
+                std::shared_ptr<User> user = checkCredentials(authToken);
+                notificationManager.addUserCallback(user->name, callback);
+                pushPendingNotifications(user, callback);
+            }
+
+            void subscribeFor(const std::string &authToken, const std::string &userName) {
+                std::shared_ptr<User> user = checkCredentials(authToken);
+                std::shared_ptr<User> subscription = storage.findUser(userName);
+                if (!subscription)
+                    throw NoSuchUserException();
+                user->addSubscription(subscription);
+            }
+
+            void releasePendingNotifications(const std::string &authToken) {
+                std::shared_ptr<User> user = checkCredentials(authToken);
+                user->releasePendingNotifications();
             }
         };
 

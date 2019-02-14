@@ -1,3 +1,5 @@
+#include <utility>
+
 #pragma once
 
 #include <utility>
@@ -57,6 +59,20 @@ namespace youtube {
         virtual ~Video() = default;
     };
 
+    class Notification {
+    private:
+        const std::shared_ptr<Video> video;
+
+    public:
+        Notification(std::shared_ptr<Video> video) : video(std::move(video)) {}
+
+        const std::shared_ptr<Video> getObject() const {
+            return video;
+        }
+    };
+
+
+    using ClientCallback = std::function<void(const std::shared_ptr<Notification>)>;
 
     class Backend {
     public:
@@ -82,5 +98,12 @@ namespace youtube {
         virtual void leaveLike(const std::string &authToken, const std::string &videoId) = 0;
 
         virtual void leaveLike(const std::string &authToken, const std::string &videoId, size_t likeId) = 0;
+
+        virtual void
+        setClientCallback(const std::string &authToken, const std::shared_ptr<ClientCallback> callback) = 0;
+
+        virtual void subscribeFor(const std::string &authToken, const std::string &userName) = 0;
+
+        virtual void releasePendingNotifications(const std::string &authToken) = 0;
     };
 }

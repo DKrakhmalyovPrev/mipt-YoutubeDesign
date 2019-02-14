@@ -9,14 +9,22 @@ namespace youtube {
         class YoutubeClient {
         private:
             const std::shared_ptr<Backend> backend;
+            std::vector<std::shared_ptr<Notification>> receivedNotifications;
+            std::shared_ptr<ClientCallback> callback;
             std::string authToken;
 
         public:
             explicit YoutubeClient(std::shared_ptr<Backend> backend)
-                    : backend(std::move(backend)) {}
+                    : backend(std::move(backend)) {
+            }
 
             void auth(const std::string &name, const std::string &password) {
                 authToken = backend->auth(name, password);
+                backend->setClientCallback(authToken, callback = std::make_shared<ClientCallback>(
+                        [this](const std::shared_ptr<Notification> notification) {
+                            receivedNotifications.push_back(notification);
+                        }
+                ));
             }
 
             void registerUser(const std::string &name, const std::string &password) {
@@ -53,6 +61,18 @@ namespace youtube {
 
             void likeComment(const std::string &videoId, size_t commentId) {
                 backend->leaveLike(authToken, videoId, commentId);
+            }
+
+            void subscribeFor(const std::string& userName) {
+                backend->subscribeFor(authToken, userName);
+            }
+
+            const std::vector<std::shared_ptr<Notification>> getAndReleaseNotifications() {
+                backend->releasePendingNotifications(authToken);
+
+                std::vector<std::shared_ptr<Notification>> result;
+                result.swap(receivedNotifications);
+                return result;
             }
         };
 

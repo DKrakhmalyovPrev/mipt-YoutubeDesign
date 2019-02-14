@@ -60,7 +60,7 @@ private:
             std::vector<std::string> searchLine = std::vector<std::string>(cmd.begin() + 1, cmd.end());
             std::vector<std::shared_ptr<youtube::Video>> result = client.searchVideos(searchLine);
             for (const auto video : result) {
-                output << '[' << video->id << "] " << video->title << '\n';
+                printVideo(video);
             }
             output.flush();
             return true;
@@ -112,6 +112,20 @@ private:
             return true;
         }, "videoId - show likes");
 
+        acceptWithHelp("subscribe", 1, [this](CLICommand& cmd) {
+            client.subscribeFor(cmd[1]);
+            return true;
+        }, "userName - follow user");
+
+        acceptWithHelp("view-updates", 0, [this](CLICommand& cmd) {
+            const std::vector<std::shared_ptr<youtube::Notification>> notifications = client.getAndReleaseNotifications();
+            for (const std::shared_ptr<youtube::Notification> notification : notifications) {
+                printVideo(notification->getObject());
+            }
+            output.flush();
+            return true;
+        }, "- show new videos by users you follow");
+
         acceptWithHelp("help", 0, [this](CLICommand &cmd) {
             output << helpString.str();
             output.flush();
@@ -158,7 +172,7 @@ private:
         );
     }
 
-    void printComments(const std::vector<std::shared_ptr<youtube::Comment>>& comments, const std::string& shift="") {
+    void printComments(const std::vector<std::shared_ptr<youtube::Comment>>& comments, const std::string& shift="") const {
         bool first = true;
         for (size_t i = 0; i < comments.size(); ++i) {
             const std::shared_ptr<youtube::Comment> comment = comments[i];
@@ -170,5 +184,9 @@ private:
             output << comment->userName << ":" << "\n" << shift << comment->content << "\n";
             printComments(comment->getReplies(), shift + "  ");
         }
+    }
+
+    void printVideo(const std::shared_ptr<youtube::Video> video) const {
+        output << '[' << video->id << "] (" << video->getLikes() << " likes) " << video->title << '\n';
     }
 };
