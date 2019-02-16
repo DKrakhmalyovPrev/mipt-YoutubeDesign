@@ -50,7 +50,13 @@ std::vector<std::string> parseToLexemes(const std::string &s) {
 int main() {
     std::cout << "Hello, Youtuber!" << std::endl;
 
-    const std::shared_ptr<youtube::Backend> backend = std::make_shared<youtube::backend::BackendImpl>();
+    const std::shared_ptr<youtube::Backend> backend{
+            new youtube::backend::Proxy({
+                                                std::make_shared<youtube::backend::BackendImpl>(),
+                                                std::make_shared<youtube::backend::BackendImpl>(),
+                                                std::make_shared<youtube::backend::BackendImpl>()
+                                        })
+    };
     youtube::client::StandardYoutubeClientFactory factory{backend};
 
     YoutubeCLI cli{std::cin, std::cout, factory.openConnection()};

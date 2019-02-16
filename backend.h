@@ -184,6 +184,7 @@ namespace youtube {
             std::map<std::string, std::shared_ptr<Video>> idVideoMap;
             std::map<std::string, std::string> videoContent;
             std::map<std::string, std::shared_ptr<User>> users;
+            std::map<std::string, std::shared_ptr<User>> authTokens;
 
             DataStorage() = default;
 
@@ -234,6 +235,17 @@ namespace youtube {
                     return std::dynamic_pointer_cast<BackendVideo>(idVideoMap[id]);
                 return nullptr;
             }
+
+            void setAuthorized(const std::string& token, const std::shared_ptr<User> user) {
+                authTokens[token] = user;
+            }
+
+            const std::shared_ptr<User> getAuthorizedUser(const std::string& token) const {
+                if (authTokens.find(token) == authTokens.end()) {
+                    return nullptr;
+                }
+                return authTokens.at(token);
+            }
         };
 
         class NotificationManager {
@@ -282,14 +294,13 @@ namespace youtube {
         private:
             DataStorage &storage = DataStorage::instance();
             NotificationManager &notificationManager = NotificationManager::instance();
-            std::map<std::string, std::shared_ptr<User>> authTokens;
-
 
             std::shared_ptr<User> checkCredentials(const std::string &authToken) {
-                if (authTokens.find(authToken) == authTokens.end()) {
+                const std::shared_ptr<User> user = storage.getAuthorizedUser(authToken);
+                if (!user) {
                     throw NotAuthorizedException();
                 }
-                return authTokens[authToken];
+                return user;
             }
 
             void
@@ -322,7 +333,7 @@ namespace youtube {
                     throw WrongPasswordException();
                 }
                 const std::string token = RandomSequenceGenerator::instance().nextRandomString(7);
-                authTokens[token] = user;
+                storage.setAuthorized(token, user);
                 return token;
             }
 
@@ -421,5 +432,73 @@ namespace youtube {
             }
         };
 
+
+        class Proxy : public Backend {
+        private:
+            const std::vector<std::shared_ptr<Backend>> backends;
+            size_t roundRobinIndex = 0;
+
+            const std::shared_ptr<Backend> nextBackend() {
+                return backends[(++roundRobinIndex) % backends.size()];
+            }
+
+        public:
+            Proxy(const std::vector<std::shared_ptr<Backend>> &backends) : backends(backends) {}
+
+            const std::string auth(const std::string &name, const std::string &password) override {
+                return nextBackend()->auth(name, password);
+            }
+
+            const std::string downloadVideo(const std::string &id) override {
+                return nextBackend()->downloadVideo(id);
+            }
+
+            void registerUser(const std::string &name, const std::string &password) override {
+                nextBackend()->registerUser(name, password);
+            }
+
+            const std::vector<std::shared_ptr<Video>> searchVideos(const std::vector<std::string> &request) override {
+                return nextBackend()->searchVideos(request);
+            }
+
+            void addVideo(const std::string &authToken, const std::string &name, const std::string &content) override {
+                nextBackend()->addVideo(authToken, name, content);
+            }
+
+            const std::shared_ptr<Video> getVideo(const std::string &id) override {
+                return nextBackend()->getVideo(id);
+            }
+
+            void leaveComment(const std::string &authToken, const std::string &videoId,
+                              const std::string &comment) override {
+                nextBackend()->leaveComment(authToken, videoId, comment);
+            }
+
+            void leaveComment(const std::string &authToken, const std::string &videoId, const std::string &comment,
+                              size_t replyToIndex) override {
+                nextBackend()->leaveComment(authToken, videoId, comment, replyToIndex);
+            }
+
+            void leaveLike(const std::string &authToken, const std::string &videoId) override {
+                nextBackend()->leaveLike(authToken, videoId);
+            }
+
+            void leaveLike(const std::string &authToken, const std::string &videoId, size_t likeId) override {
+                nextBackend()->leaveLike(authToken, videoId, likeId);
+            }
+
+            void
+            setClientCallback(const std::string &authToken, const std::shared_ptr<ClientCallback> callback) override {
+                nextBackend()->setClientCallback(authToken, callback);
+            }
+
+            void subscribeFor(const std::string &authToken, const std::string &userName) override {
+                nextBackend()->subscribeFor(authToken, userName);
+            }
+
+            void releasePendingNotifications(const std::string &authToken) override {
+                nextBackend()->releasePendingNotifications(authToken);
+            }
+        };
     }
 }
