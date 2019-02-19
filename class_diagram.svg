@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Bouml (http://bouml.free.fr/) -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="1439" height="745" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<g>
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="651" y="622" width="2" height="20" />
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="579" y="640" width="74" height="2" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="576" y="619" width="75" height="21" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-weight="bold" font-style="italic" text-anchor="middle" x="614" y="624">YoutubeClientFactory</text>
+	<line stroke="black" stroke-opacity="1" x1="576" y1="628" x2="651" y2="628" />
+	<line stroke="black" stroke-opacity="1" x1="576" y1="632" x2="651" y2="632" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-style="italic" x="578" y="637">openConnection()</text>
+</g>
+<g>
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="786" y="617" width="2" height="28" />
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="684" y="643" width="104" height="2" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="681" y="614" width="105" height="29" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="734" y="619">StandardYoutubeClientFactory</text>
+	<line stroke="black" stroke-opacity="1" x1="681" y1="623" x2="786" y2="623" />
+	<line stroke="black" stroke-opacity="1" x1="681" y1="627" x2="786" y2="627" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="683" y="632">StandardYoutubeClientFactory()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="683" y="640">openConnection()</text>
+</g>
+<g>
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="929" y="446" width="2" height="130" />
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="833" y="574" width="98" height="2" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="830" y="443" width="99" height="131" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="880" y="448">YoutubeClient</text>
+	<line stroke="black" stroke-opacity="1" x1="830" y1="452" x2="929" y2="452" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="832" y="457">receivedNotifications</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="832" y="465">authToken</text>
+	<line stroke="black" stroke-opacity="1" x1="830" y1="469" x2="929" y2="469" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="832" y="474">YoutubeClient()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="832" y="482">auth()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="832" y="490">registerUser()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="832" y="498">searchVideos()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="832" y="506">getVideo()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="832" y="514">uploadVideo()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="832" y="522">downloadVideo()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="832" y="530">leaveComment()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="832" y="538">leaveComment()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="832" y="546">likeVideo()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="832" y="554">likeComment()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="832" y="562">subscribeFor()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="832" y="570">getAndReleaseNotifications()</text>
+</g>
+<g>
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="479" y="245" width="2" height="146" />
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="399" y="389" width="82" height="2" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="396" y="242" width="83" height="147" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="438" y="247">DataStorage</text>
+	<line stroke="black" stroke-opacity="1" x1="396" y1="251" x2="479" y2="251" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="398" y="256">videos</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="398" y="264">idVideoMap</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="398" y="272">videoContent</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="398" y="280">users</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="398" y="288">authTokens</text>
+	<line stroke="black" stroke-opacity="1" x1="396" y1="292" x2="479" y2="292" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="398" y="297">DataStorage()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="398" y="305">DataStorage()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="398" y="313">DataStorage()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" text-decoration="underline" x="398" y="321">instance()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="398" y="329">findUser()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="398" y="337">createUser()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="398" y="345">createVideo()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="398" y="353">getVideoSearchEngine()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="398" y="361">findVideoContent()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="398" y="369">findVideo()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="398" y="377">setAuthorized()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="398" y="385">getAuthorizedUser()</text>
+</g>
+<g>
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="603" y="155" width="2" height="50" />
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="507" y="203" width="98" height="2" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="504" y="152" width="99" height="51" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="554" y="157">RandomSequenceGenerator</text>
+	<line stroke="black" stroke-opacity="1" x1="504" y1="161" x2="603" y2="161" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="506" y="166">distribution</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="506" y="174">gen</text>
+	<line stroke="black" stroke-opacity="1" x1="504" y1="178" x2="603" y2="178" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="506" y="183">RandomSequenceGenerator()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" text-decoration="underline" x="506" y="191">instance()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="506" y="199">nextRandomString()</text>
+</g>
+<g>
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="408" y="442" width="2" height="122" />
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="312" y="562" width="98" height="2" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="309" y="439" width="99" height="123" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="359" y="444">User</text>
+	<line stroke="black" stroke-opacity="1" x1="309" y1="448" x2="408" y2="448" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="311" y="453">password</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="311" y="461">followers</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="311" y="469">subscriptions</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="311" y="477">pendingNotifications</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="311" y="485">videos</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="311" y="493">name</text>
+	<line stroke="black" stroke-opacity="1" x1="309" y1="497" x2="408" y2="497" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="311" y="502">User()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="311" y="510">checkPassword()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="311" y="518">addVideo()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="311" y="526">addSubscription()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="311" y="534">deferNotification()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="311" y="542">releasePendingNotifications()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="311" y="550">getPendingNotifications()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="311" y="558">getFollowers()</text>
+</g>
+<g>
+	<line stroke="#000000" stroke-opacity="1" x1="680" y1="631" x2="660" y2="631" />
+	<line stroke="#000000" stroke-opacity="1" x1="654" y1="631" x2="660" y2="637" />
+	<line stroke="#000000" stroke-opacity="1" x1="654" y1="631" x2="660" y2="625" />
+	<line stroke="#000000" stroke-opacity="1" x1="660" y1="637" x2="660" y2="625" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="439" y1="392" x2="439" y2="500" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="411" y1="500" x2="417" y2="506" />
+	<line stroke="black" stroke-opacity="1" x1="411" y1="500" x2="417" y2="494" />
+	<line stroke="black" stroke-opacity="1" x1="439" y1="500" x2="411" y2="500" />
+</g>
+<g>
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="194" y="301" width="2" height="34" />
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="136" y="333" width="60" height="2" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="133" y="298" width="61" height="35" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="164" y="303">BackendLikeable</text>
+	<line stroke="black" stroke-opacity="1" x1="133" y1="307" x2="194" y2="307" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="135" y="312">whoLiked</text>
+	<line stroke="black" stroke-opacity="1" x1="133" y1="316" x2="194" y2="316" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="135" y="321">like()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="135" y="329">getLikes()</text>
+</g>
+<g>
+	<ellipse fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" cx="166" cy="70" rx="5" ry="5" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-weight="bold" font-style="italic" text-anchor="middle" x="166" y="80">Likeable</text>
+	<line stroke="black" stroke-opacity="1" x1="148" y1="84" x2="184" y2="84" />
+	<line stroke="black" stroke-opacity="1" x1="148" y1="88" x2="184" y2="88" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-style="italic" x="150" y="93">getLikes()</text>
+</g>
+<g>
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="197" y="366" width="2" height="36" />
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="133" y="400" width="66" height="2" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="130" y="363" width="67" height="37" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="164" y="368">BackendComment</text>
+	<line stroke="black" stroke-opacity="1" x1="130" y1="372" x2="197" y2="372" />
+	<line stroke="black" stroke-opacity="1" x1="130" y1="376" x2="197" y2="376" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="132" y="381">BackendComment()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="132" y="389">getLikes()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="132" y="397">addReply()</text>
+</g>
+<g>
+	<line stroke="#000000" stroke-opacity="1" x1="166" y1="362" x2="166" y2="342" />
+	<line stroke="#000000" stroke-opacity="1" x1="166" y1="336" x2="160" y2="342" />
+	<line stroke="#000000" stroke-opacity="1" x1="166" y1="336" x2="172" y2="342" />
+	<line stroke="#000000" stroke-opacity="1" x1="160" y1="342" x2="172" y2="342" />
+</g>
+<g>
+	<line stroke-dasharray="4,4" stroke="#000000" stroke-opacity="1" x1="166" y1="297" x2="166" y2="103" />
+	<line stroke="#000000" stroke-opacity="1" x1="166" y1="97" x2="160" y2="103" />
+	<line stroke="#000000" stroke-opacity="1" x1="166" y1="97" x2="172" y2="103" />
+	<line stroke="#000000" stroke-opacity="1" x1="160" y1="103" x2="172" y2="103" />
+</g>
+<g>
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="275" y="300" width="2" height="36" />
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="223" y="334" width="54" height="2" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="220" y="297" width="55" height="37" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="248" y="302">BackendVideo</text>
+	<line stroke="black" stroke-opacity="1" x1="220" y1="306" x2="275" y2="306" />
+	<line stroke="black" stroke-opacity="1" x1="220" y1="310" x2="275" y2="310" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="222" y="315">BackendVideo()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="222" y="323">addComment()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="222" y="331">getLikes()</text>
+</g>
+<g>
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="106" y="361" width="2" height="50" />
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="66" y="409" width="42" height="2" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="63" y="358" width="43" height="51" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="85" y="363">Comment</text>
+	<line stroke="black" stroke-opacity="1" x1="63" y1="367" x2="106" y2="367" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="65" y="372">replies</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="65" y="380">userName</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="65" y="388">content</text>
+	<line stroke="black" stroke-opacity="1" x1="63" y1="392" x2="106" y2="392" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="65" y="397">Comment()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="65" y="405">getReplies()</text>
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="200" y1="385" x2="206" y2="391" />
+	<line stroke="black" stroke-opacity="1" x1="200" y1="385" x2="206" y2="379" />
+	<line stroke="black" stroke-opacity="1" x1="248" y1="385" x2="200" y2="385" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="248" y1="337" x2="248" y2="385" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="308" y1="500" x2="267" y2="500" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="267" y1="337" x2="261" y2="343" />
+	<line stroke="black" stroke-opacity="1" x1="267" y1="337" x2="273" y2="343" />
+	<line stroke="black" stroke-opacity="1" x1="267" y1="500" x2="267" y2="337" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="278" y1="317" x2="284" y2="323" />
+	<line stroke="black" stroke-opacity="1" x1="278" y1="317" x2="284" y2="311" />
+	<line stroke="black" stroke-opacity="1" x1="395" y1="317" x2="278" y2="317" />
+</g>
+<g>
+	<line stroke="#000000" stroke-opacity="1" x1="219" y1="317" x2="203" y2="317" />
+	<line stroke="#000000" stroke-opacity="1" x1="197" y1="317" x2="203" y2="323" />
+	<line stroke="#000000" stroke-opacity="1" x1="197" y1="317" x2="203" y2="311" />
+	<line stroke="#000000" stroke-opacity="1" x1="203" y1="323" x2="203" y2="311" />
+</g>
+<g>
+	<line stroke-dasharray="4,4" stroke="#000000" stroke-opacity="1" x1="166" y1="121" x2="166" y2="103" />
+	<line stroke="#000000" stroke-opacity="1" x1="166" y1="97" x2="160" y2="103" />
+	<line stroke="#000000" stroke-opacity="1" x1="166" y1="97" x2="172" y2="103" />
+	<line stroke="#000000" stroke-opacity="1" x1="160" y1="103" x2="172" y2="103" />
+</g>
+<g>
+	<line stroke-dasharray="4,4" stroke="#000000" stroke-opacity="1" x1="86" y1="121" x2="166" y2="121" />
+</g>
+<g>
+	<line stroke-dasharray="4,4" stroke="#000000" stroke-opacity="1" x1="86" y1="357" x2="86" y2="121" />
+</g>
+<g>
+	<line stroke="#000000" stroke-opacity="1" x1="129" y1="385" x2="115" y2="385" />
+	<line stroke="#000000" stroke-opacity="1" x1="109" y1="385" x2="115" y2="391" />
+	<line stroke="#000000" stroke-opacity="1" x1="109" y1="385" x2="115" y2="379" />
+	<line stroke="#000000" stroke-opacity="1" x1="115" y1="391" x2="115" y2="379" />
+</g>
+<g>
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="274" y="149" width="2" height="66" />
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="224" y="213" width="52" height="2" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="221" y="146" width="53" height="67" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-weight="bold" font-style="italic" text-anchor="middle" x="248" y="151">Video</text>
+	<line stroke="black" stroke-opacity="1" x1="221" y1="155" x2="274" y2="155" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="223" y="160">comments</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="223" y="168">id</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="223" y="176">title</text>
+	<line stroke="black" stroke-opacity="1" x1="221" y1="180" x2="274" y2="180" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="223" y="185">Video()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="223" y="193">getComments()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-style="italic" x="223" y="201">getLikes()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="223" y="209">~Video()</text>
+</g>
+<g>
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="465" y="159" width="2" height="50" />
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="415" y="207" width="52" height="2" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="412" y="156" width="53" height="51" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="439" y="161">SearchEngine</text>
+	<line stroke="black" stroke-opacity="1" x1="412" y1="165" x2="465" y2="165" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="414" y="170">supplier</text>
+	<line stroke="black" stroke-opacity="1" x1="412" y1="174" x2="465" y2="174" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="414" y="179">elementInfo()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="414" y="187">elementInfo()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="414" y="195">SearchEngine()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="414" y="203">search()</text>
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="43" y1="43" x2="43" y2="365" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="277" y1="189" x2="370" y2="192" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="370" y1="192" x2="370" y2="43" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="439" y1="210" x2="433" y2="216" />
+	<line stroke="black" stroke-opacity="1" x1="439" y1="210" x2="445" y2="216" />
+	<line stroke="black" stroke-opacity="1" x1="439" y1="241" x2="439" y2="210" />
+	<polygon fill="#000000" stroke="black" stroke-opacity="1" points="439,241 433,235 439,229 445,235" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="370" y1="43" x2="43" y2="43" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="62" y1="365" x2="56" y2="359" />
+	<line stroke="black" stroke-opacity="1" x1="62" y1="365" x2="56" y2="371" />
+	<line stroke="black" stroke-opacity="1" x1="43" y1="365" x2="62" y2="365" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="62" y1="385" x2="55" y2="379" />
+	<line stroke="black" stroke-opacity="1" x1="62" y1="385" x2="56" y2="391" />
+	<line stroke="black" stroke-opacity="1" x1="21" y1="387" x2="62" y2="385" />
+</g>
+<g>
+	<line stroke-dasharray="4,4" stroke="#000000" stroke-opacity="1" x1="248" y1="121" x2="166" y2="121" />
+</g>
+<g>
+	<line stroke-dasharray="4,4" stroke="#000000" stroke-opacity="1" x1="166" y1="121" x2="166" y2="103" />
+	<line stroke="#000000" stroke-opacity="1" x1="166" y1="97" x2="160" y2="103" />
+	<line stroke="#000000" stroke-opacity="1" x1="166" y1="97" x2="172" y2="103" />
+	<line stroke="#000000" stroke-opacity="1" x1="160" y1="103" x2="172" y2="103" />
+</g>
+<g>
+	<line stroke="#000000" stroke-opacity="1" x1="249" y1="296" x2="249" y2="222" />
+	<line stroke="#000000" stroke-opacity="1" x1="249" y1="216" x2="243" y2="222" />
+	<line stroke="#000000" stroke-opacity="1" x1="249" y1="216" x2="255" y2="222" />
+	<line stroke="#000000" stroke-opacity="1" x1="243" y1="222" x2="255" y2="222" />
+</g>
+<g>
+	<line stroke-dasharray="4,4" stroke="#000000" stroke-opacity="1" x1="248" y1="145" x2="248" y2="121" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="392" y1="213" x2="392" y2="21" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="392" y1="21" x2="21" y2="21" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="21" y1="21" x2="21" y2="387" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="277" y1="209" x2="392" y2="213" />
+</g>
+<g>
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="547" y="634" width="2" height="74" />
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="479" y="706" width="70" height="2" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="476" y="631" width="71" height="75" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="512" y="636">NotificationManager</text>
+	<line stroke="black" stroke-opacity="1" x1="476" y1="640" x2="547" y2="640" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="478" y="645">callbacks</text>
+	<line stroke="black" stroke-opacity="1" x1="476" y1="649" x2="547" y2="649" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="478" y="654">NotificationManager()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="478" y="662">getUserCallbacks()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="478" y="670">NotificationManager()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="478" y="678">NotificationManager()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" text-decoration="underline" x="478" y="686">instance()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="478" y="694">addUserCallback()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="478" y="702">notify()</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="281" y="144">-video</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="56" y="394">*</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="886" y="651">-callback</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="416" y="509">*</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="885" y="428">-client</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="206" y="394">*</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="283" y="327">*</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="570" y="414">1..*</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="789" y="504">-backend</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="259" y="349">*</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="739" y="591">-backend</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="326" y="178">*</text>
+</g>
+<g>
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="602" y="244" width="2" height="148" />
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="506" y="390" width="98" height="2" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="503" y="241" width="99" height="149" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="553" y="246">BackendImpl</text>
+	<line stroke="black" stroke-opacity="1" x1="503" y1="250" x2="602" y2="250" />
+	<line stroke="black" stroke-opacity="1" x1="503" y1="254" x2="602" y2="254" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="505" y="259">checkCredentials()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="505" y="267">pushPendingNotifications()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="505" y="275">pushNotificationTo()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="505" y="283">pushNotificationFrom()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="505" y="291">auth()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="505" y="299">registerUser()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="505" y="307">addVideo()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="505" y="315">searchVideos()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="505" y="323">downloadVideo()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="505" y="331">getVideo()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="505" y="339">leaveComment()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="505" y="347">leaveComment()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="505" y="355">leaveLike()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="505" y="363">leaveLike()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="505" y="371">setClientCallback()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="505" y="379">subscribeFor()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="505" y="387">releasePendingNotifications()</text>
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="555" y1="206" x2="549" y2="212" />
+	<line stroke="black" stroke-opacity="1" x1="555" y1="206" x2="561" y2="212" />
+	<line stroke="black" stroke-opacity="1" x1="555" y1="240" x2="555" y2="206" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="482" y1="317" x2="488" y2="323" />
+	<line stroke="black" stroke-opacity="1" x1="482" y1="317" x2="488" y2="311" />
+	<line stroke="black" stroke-opacity="1" x1="502" y1="317" x2="482" y2="317" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="513" y1="630" x2="519" y2="624" />
+	<line stroke="black" stroke-opacity="1" x1="513" y1="630" x2="507" y2="624" />
+	<line stroke="black" stroke-opacity="1" x1="513" y1="393" x2="513" y2="630" />
+</g>
+<g>
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="632" y="438" width="2" height="146" />
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="536" y="582" width="98" height="2" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="533" y="435" width="99" height="147" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="583" y="440">Proxy</text>
+	<line stroke="black" stroke-opacity="1" x1="533" y1="444" x2="632" y2="444" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="535" y="449">backends</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="535" y="457">roundRobinIndex</text>
+	<line stroke="black" stroke-opacity="1" x1="533" y1="461" x2="632" y2="461" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="535" y="466">nextBackend()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="535" y="474">Proxy()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="535" y="482">auth()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="535" y="490">downloadVideo()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="535" y="498">registerUser()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="535" y="506">searchVideos()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="535" y="514">addVideo()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="535" y="522">getVideo()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="535" y="530">leaveComment()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="535" y="538">leaveComment()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="535" y="546">leaveLike()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="535" y="554">leaveLike()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="535" y="562">setClientCallback()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="535" y="570">subscribeFor()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="535" y="578">releasePendingNotifications()</text>
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="586" y1="393" x2="579" y2="398" />
+	<line stroke="black" stroke-opacity="1" x1="586" y1="393" x2="591" y2="399" />
+	<line stroke="black" stroke-opacity="1" x1="585" y1="434" x2="586" y2="393" />
+</g>
+<g>
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="905" y="660" width="2" height="16" />
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="857" y="674" width="50" height="2" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="854" y="657" width="51" height="17" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="880" y="662">ClientCallback</text>
+	<line stroke="black" stroke-opacity="1" x1="854" y1="666" x2="905" y2="666" />
+	<line stroke="black" stroke-opacity="1" x1="854" y1="670" x2="905" y2="670" />
+</g>
+<g>
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="915" y="285" width="2" height="106" />
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="841" y="389" width="76" height="2" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="838" y="282" width="77" height="107" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="877" y="287">YoutubeCLI</text>
+	<line stroke="black" stroke-opacity="1" x1="838" y1="291" x2="915" y2="291" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="840" y="296">input</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="840" y="304">output</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="840" y="312">helpString</text>
+	<line stroke="black" stroke-opacity="1" x1="838" y1="316" x2="915" y2="316" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="840" y="321">YoutubeCLI()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="840" y="329">handleNextCommand()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="840" y="337">initProcessing()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="840" y="345">acceptWithHelp()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="840" y="353">acceptWithHelp()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="840" y="361">accept()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="840" y="369">accept()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="840" y="377">printComments()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="840" y="385">printVideo()</text>
+</g>
+<g>
+	<ellipse fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" cx="735" cy="451" rx="5" ry="5" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-weight="bold" font-style="italic" text-anchor="middle" x="735" y="461">Backend</text>
+	<line stroke="black" stroke-opacity="1" x1="685" y1="465" x2="785" y2="465" />
+	<line stroke="black" stroke-opacity="1" x1="685" y1="469" x2="785" y2="469" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-style="italic" x="687" y="474">auth()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-style="italic" x="687" y="482">downloadVideo()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-style="italic" x="687" y="490">registerUser()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-style="italic" x="687" y="498">searchVideos()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-style="italic" x="687" y="506">addVideo()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-style="italic" x="687" y="514">getVideo()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-style="italic" x="687" y="522">leaveComment()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-style="italic" x="687" y="530">leaveComment()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-style="italic" x="687" y="538">leaveLike()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-style="italic" x="687" y="546">leaveLike()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-style="italic" x="687" y="554">setClientCallback()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-style="italic" x="687" y="562">subscribeFor()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-style="italic" x="687" y="570">releasePendingNotifications()</text>
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="881" y1="656" x2="887" y2="650" />
+	<line stroke="black" stroke-opacity="1" x1="881" y1="656" x2="875" y2="650" />
+	<line stroke="black" stroke-opacity="1" x1="881" y1="577" x2="881" y2="656" />
+	<polygon fill="#000000" stroke="black" stroke-opacity="1" points="881,577 887,583 881,589 875,583" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="878" y1="442" x2="884" y2="436" />
+	<line stroke="black" stroke-opacity="1" x1="878" y1="442" x2="872" y2="436" />
+	<line stroke="black" stroke-opacity="1" x1="878" y1="392" x2="878" y2="442" />
+	<polygon fill="#000000" stroke="black" stroke-opacity="1" points="878,392 884,398 878,404 872,398" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="550" y1="669" x2="853" y2="667" />
+	<polygon fill="#ffffff" stroke="black" stroke-opacity="1" points="550,669 555,662 561,668 556,674" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="735" y1="574" x2="729" y2="580" />
+	<line stroke="black" stroke-opacity="1" x1="735" y1="574" x2="741" y2="580" />
+	<line stroke="black" stroke-opacity="1" x1="735" y1="613" x2="735" y2="574" />
+	<polygon fill="#ffffff" stroke="black" stroke-opacity="1" points="735,613 729,607 735,601 741,607" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="785" y1="510" x2="791" y2="516" />
+	<line stroke="black" stroke-opacity="1" x1="785" y1="510" x2="791" y2="504" />
+	<line stroke="black" stroke-opacity="1" x1="829" y1="510" x2="785" y2="510" />
+	<polygon fill="#ffffff" stroke="black" stroke-opacity="1" points="829,510 823,516 817,510 823,504" />
+</g>
+<g>
+	<line stroke-dasharray="4,4" stroke="#000000" stroke-opacity="1" x1="657" y1="511" x2="678" y2="510" />
+	<line stroke="#000000" stroke-opacity="1" x1="684" y1="510" x2="677" y2="504" />
+	<line stroke="#000000" stroke-opacity="1" x1="684" y1="510" x2="678" y2="516" />
+	<line stroke="#000000" stroke-opacity="1" x1="677" y1="504" x2="678" y2="516" />
+</g>
+<g>
+	<line stroke-dasharray="4,4" stroke="#000000" stroke-opacity="1" x1="605" y1="318" x2="657" y2="319" />
+</g>
+<g>
+	<line stroke-dasharray="4,4" stroke="#000000" stroke-opacity="1" x1="635" y1="510" x2="678" y2="510" />
+	<line stroke="#000000" stroke-opacity="1" x1="684" y1="510" x2="678" y2="504" />
+	<line stroke="#000000" stroke-opacity="1" x1="684" y1="510" x2="678" y2="516" />
+	<line stroke="#000000" stroke-opacity="1" x1="678" y1="504" x2="678" y2="516" />
+</g>
+<g>
+	<line stroke-dasharray="4,4" stroke="#000000" stroke-opacity="1" x1="657" y1="319" x2="657" y2="511" />
+</g>
+<g>
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="354" y="138" width="2" height="28" />
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="312" y="164" width="44" height="2" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="309" y="135" width="45" height="29" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="332" y="140">Notification</text>
+	<line stroke="black" stroke-opacity="1" x1="309" y1="144" x2="354" y2="144" />
+	<line stroke="black" stroke-opacity="1" x1="309" y1="148" x2="354" y2="148" />
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="311" y="153">Notification()</text>
+	<text font-family="Helvetica" font-size="4" fill="#000000" xml:space="preserve" x="311" y="161">getObject()</text>
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="333" y1="167" x2="327" y2="173" />
+	<line stroke="black" stroke-opacity="1" x1="333" y1="167" x2="339" y2="172" />
+	<line stroke="black" stroke-opacity="1" x1="334" y1="438" x2="333" y2="167" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="277" y1="153" x2="283" y2="158" />
+	<line stroke="black" stroke-opacity="1" x1="277" y1="153" x2="282" y2="146" />
+	<line stroke="black" stroke-opacity="1" x1="308" y1="149" x2="277" y2="153" />
+	<polygon fill="#ffffff" stroke="black" stroke-opacity="1" points="308,149 302,155 296,150 301,143" />
+</g>
+</svg>
